@@ -1,0 +1,42 @@
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+1 pi3-sway-workspace -i 1
+bindsym $mod+2 pi3-sway-workspace -i 2
+bindsym $mod+3 pi3-sway-workspace -i 3
+bindsym $mod+4 pi3-sway-workspace -i 4
+bindsym $mod+5 pi3-sway-workspace -i 5
+bindsym $mod+6 pi3-sway-workspace -i 6
+bindsym $mod+7 pi3-sway-workspace -i 7
+bindsym $mod+8 pi3-sway-workspace -i 8
+bindsym $mod+9 pi3-sway-workspace -i 9
+bindsym $mod+0 pi3-sway-workspace -i 10
+
+bindsym $mod+Shift+1 pi3-sway-workspace -si 1
+bindsym $mod+Shift+2 pi3-sway-workspace -si 2
+bindsym $mod+Shift+3 pi3-sway-workspace -si 3
+bindsym $mod+Shift+4 pi3-sway-workspace -si 4
+bindsym $mod+Shift+5 pi3-sway-workspace -si 5
+bindsym $mod+Shift+6 pi3-sway-workspace -si 6
+bindsym $mod+Shift+7 pi3-sway-workspace -si 7
+bindsym $mod+Shift+8 pi3-sway-workspace -si 8
+bindsym $mod+Shift+9 pi3-sway-workspace -si 9
+bindsym $mod+Shift+0 pi3-sway-workspace -si 10
+
+bindsym $mod+Control+1 pi3-sway-workspace -ski 1
+bindsym $mod+Control+2 pi3-sway-workspace -ski 2
+bindsym $mod+Control+3 pi3-sway-workspace -ski 3
+bindsym $mod+Control+4 pi3-sway-workspace -ski 4
+bindsym $mod+Control+5 pi3-sway-workspace -ski 5
+bindsym $mod+Control+6 pi3-sway-workspace -ski 6
+bindsym $mod+Control+7 pi3-sway-workspace -ski 7
+bindsym $mod+Control+8 pi3-sway-workspace -ski 8
+bindsym $mod+Control+9 pi3-sway-workspace -ski 9
+bindsym $mod+Control+0 pi3-sway-workspace -ski 10

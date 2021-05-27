@@ -1,0 +1,12 @@
+output {name}
+
+workspace {index}:1 output {name}
+workspace {index}:2 output {name}
+workspace {index}:3 output {name}
+workspace {index}:4 output {name}
+workspace {index}:5 output {name}
+workspace {index}:6 output {name}
+workspace {index}:7 output {name}
+workspace {index}:8 output {name}
+workspace {index}:9 output {name}
+workspace {index}:10 output {name}
