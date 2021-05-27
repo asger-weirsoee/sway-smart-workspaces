@@ -9,5 +9,5 @@ jobs:
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Hey, thanks for contributing to pi3-sway-workspace-smart-workspace by submitting an issue! :smile:\nIt is greatly appriciated even if you don''t know or want to submit a PR, this right here is contributing to making this pi3-sway-workspace-smart-workspace a better tool, and thus, makes us all, live in a better world!'
-        pr-message: 'You, sir or mam, are awesome! Thanks for the PR! I''ll look into it as soon as I have time for it! Your help, thoughts and actions are greatly appriciated!\nThank you! -@generaldenmark'
+        issue-message: 'Hey, thanks for contributing to sway-smart-workspace by submitting an issue! :smile:\nIt is greatly appreciated even if you don''t know or want to submit a PR, this right here is contributing to making this sway_smart_workspace-smart-workspace a better tool, and thus, makes us all, live in a better world!'
+        pr-message: 'You, sir or mam, are awesome! Thanks for the PR! I''ll look into it as soon as I have time for it! Your help, thoughts and actions are greatly appreciated!\nThank you! -@generaldenmark'
