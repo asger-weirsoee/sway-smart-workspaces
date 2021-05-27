@@ -46,7 +46,6 @@ class WorkSpacer:
 
     def run(self):
         name = self._get_workspace_from_courser_position()
-        print(name)
         output_config = Path(self.args.output_location).joinpath(name)
         if not output_config.exists():
             self._create_default_config(output_config, name)

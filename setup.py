@@ -8,7 +8,7 @@ with open('requirements.txt', 'r') as fr:
 
 setup(
     name='sway-smart-workspace',
-    version='0.0.6',
+    version='0.1.0',
     package_data={'templates': ['sway_smart_workspace/templates/*']},
     packages=['sway_smart_workspace', 'sway_smart_workspace/templates'],
     url='https://github.com/GeneralDenmark/PyOutputHandler',
