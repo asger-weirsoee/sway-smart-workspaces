@@ -2,7 +2,7 @@ import argparse
 import shutil
 from pathlib import Path
 
-from smart_workspace import WorkSpacer
+from . import WorkSpacer
 
 template_position = Path(__file__).parent.joinpath('templates')
 
@@ -27,15 +27,23 @@ shift_group.add_argument('-k', '--keep-with-it', action='store_true',
                          help='Moves the active window to the index workspace, and moves with it')
 parsed_args = parser.parse_args()
 
-if default_home == parsed_args.output_location:
-    if not default_home.is_dir():
-        default_home.mkdir(parents=True, exist_ok=True)
-        shutil.copy(template_position.joinpath('controls'), default_home.joinpath('controls'))
-        parsed_args[
-            'only_send'] = 'Before using this tool remember to add include $HOME/.config/sway/outputs to your configuration'
-        WorkSpacer(parsed_args, template_position)
-        exit()
-elif not Path(parsed_args.output_location).is_dir():
-    raise Exception('--output-location MUST be a directory.')
 
-WorkSpacer(parsed_args, template_position).run()
+def main():
+    if default_home == parsed_args.output_location:
+        if not default_home.is_dir():
+            default_home.mkdir(parents=True, exist_ok=True)
+            shutil.copy(template_position.joinpath('controls'), default_home.joinpath('controls'))
+            parsed_args[
+                'only_send'] = 'Before using this tool remember to add include $HOME/.config/sway/outputs to your configuration'
+            WorkSpacer(parsed_args, template_position)
+            exit()
+    elif not Path(parsed_args.output_location).is_dir():
+        raise Exception('--output-location MUST be a directory.')
+    if parsed_args.debug:
+        WorkSpacer(parsed_args, template_position).print_output_continuously()
+    else:
+        WorkSpacer(parsed_args, template_position).run()
+
+
+if __name__ == '__main__':
+    main()

@@ -1,21 +1,20 @@
 from setuptools import setup
+
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
+with open('requirements.txt', 'r') as fr:
+    requirements = fr.read()
+
 setup(
     name='sway-smart-workspace',
-    version='0.0.1',
-    packages=['sway_smart_workspace'],
+    version='0.0.6',
+    package_data={'templates': ['sway_smart_workspace/templates/*']},
+    packages=['sway_smart_workspace', 'sway_smart_workspace/templates'],
     url='https://github.com/GeneralDenmark/PyOutputHandler',
-    license='Apache-2.0 License ',
-    install_requires=[
-        "evdev==1.3.0",
-        "i3ipc==2.2.1",
-        "pynput==1.7.1",
-        "python-xlib==0.27",
-        "six==1.15.0"
-    ],
-    entry_points={"console_scripts": ["sway-smart-workspace=sway_smart_workspace:main"]},
+    license='GNU Lesser General Public License v3 or later (LGPLv3+)',
+    install_requires=requirements.split('\n'),
+    entry_points={"console_scripts": ["sway-smart-workspace=sway_smart_workspace.__main__:main"]},
     scripts=["sway_smart_workspace/__main__.py"],
     long_description=long_description,
     long_description_content_type='text/markdown',

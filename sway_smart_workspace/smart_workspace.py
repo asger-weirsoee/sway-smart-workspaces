@@ -1,9 +1,12 @@
 import re
 import subprocess
+import time
 from pathlib import Path
-
+from uinput import Device
+from pymouse import PyMouse
 import pynput
 from i3ipc import Connection
+from i3ipc import OutputReply
 
 
 def get_active_outputs():
@@ -43,6 +46,7 @@ class WorkSpacer:
 
     def run(self):
         name = self._get_workspace_from_courser_position()
+        print(name)
         output_config = Path(self.args.output_location).joinpath(name)
         if not output_config.exists():
             self._create_default_config(output_config, name)
@@ -61,27 +65,13 @@ class WorkSpacer:
                 return
         self.sway.command(f'workspace {workspaces[self.args.index - 1]}')
 
-    def _get_workspace_from_courser_position(self):
-        self.mouse_position = pynput.mouse.Controller().position
-        for output in self.outputs:
-            width = output.__dict__["rect"].__dict__["width"]
-            height = output.__dict__["rect"].__dict__["height"]
-            x_offset = output.__dict__["rect"].__dict__["x"]
-            y_offset = output.__dict__["rect"].__dict__["y"]
+    def print_output_continuously(self):
+        while True:
+            print(self._get_workspace_from_courser_position())
+            time.sleep(1)
 
-            if x_offset == 0 and y_offset == 0:
-                if x_offset <= self.mouse_position[0] <= x_offset + width and y_offset <= \
-                        self.mouse_position[1] <= y_offset + height:
-                    return output.__dict__["name"]
-            elif x_offset == 0:
-                if x_offset <= self.mouse_position[0] <= x_offset + width and y_offset < \
-                        self.mouse_position[1] <= y_offset + height:
-                    return output.__dict__["name"]
-            elif y_offset == 0:
-                if x_offset < self.mouse_position[0] <= x_offset + width and y_offset <= \
-                        self.mouse_position[1] <= y_offset + height:
-                    return output.__dict__["name"]
-            else:
-                if x_offset < self.mouse_position[0] <= x_offset + width and y_offset < \
-                        self.mouse_position[1] <= y_offset + height:
-                    return output.__dict__["name"]
+    def _get_workspace_from_courser_position(self):
+        for output in self.sway.get_outputs():
+            if output.focused:
+                return output.name
+

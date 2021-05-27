@@ -1,0 +1,2 @@
+include sway_smart_workspace/templates/output sway_smart_workspace/templates/controls
+include requirements.txt
