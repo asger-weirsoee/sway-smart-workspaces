@@ -7,34 +7,33 @@ This also allows for a more seameless interaction with how workspaces are openen
 
 Usage
 =====
-
-    usage: pi3-sway-workspace [-h] [-d] -i INDEX [-o OUTPUT_LOCATION] [-s] [-k]
-
+    usage: sway-smart-workspace [-h] [-d] -i INDEX [-o OUTPUT_LOCATION] [-s] [-k]
+    
     Changes the workspace, based on what output your cursor is on.
 
     optional arguments:
       -h, --help            show this help message and exit
       -d, --debug           Turn on debug mode.
-
+   
     Required:
-
-      -i INDEX, --index INDEX
-                            The indexed workspace for the output where the cursor is currently located
-      -o OUTPUT_LOCATION, --output-location OUTPUT_LOCATION
-                            The dir for where the location output configurations are located
-
+   
+     -i INDEX, --index INDEX
+                           The indexed workspace for the output where the cursor is currently located
+     -o OUTPUT_LOCATION, --output-location OUTPUT_LOCATION
+                        The dir for where the location output configurations are located
+  
     Shift:
       manipulate the active window
-
-      -s, --shift           Moves the active window to the index workspace
-      -k, --keep-with-it    Moves the active window to the index workspace, and moves with it
-
+   
+     -s, --shift           Moves the active window to the index workspace
+     -k, --keep-with-it    Moves the active window to the index workspace, and moves with it
+     
 Installation
 ============
 
 Install using pip (recommended):
 
-    pip install pi3-sway-workspace
+    pip install sway-smart-workspace
 
 Before using this script for what is meant to do, you need to call it once.
 
@@ -44,7 +43,7 @@ default location :: is \$HOME/.config/sway/outputs
 
 if you wish to change which folder is used, the script needs to be called with the --output-location parameter else just call it like so:
 
-    pi3-sway-workspace -i 1
+     sway-smart-workspace -i 1
 
 Now that the controls and output configuration is created, you have to locate the place in you own sway config that usually handels these controls, and remove them. Instead, replace it with an include statement for where your outputs folder is located.
 
@@ -74,14 +73,14 @@ So in otherwords instead of:
 
 You should have
 
-    include $HOME/agw/.config/sway/output/*
+    include $HOME/.config/sway/outputs/*
 
 Now reload you sway configuration and you are good to go.
 
 Future work
 ===========
 
-Here a few ideas on how to improve pi3-smart-workspace could be improved in the future. If anyone wants to submit a pr that solves one of the problems stated below feel free to do so :)
+Here a few ideas on how to improve sway-smart-workspace could be improved in the future. If anyone wants to submit a pr that solves one of the problems stated below feel free to do so :)
 
 -   Automatically yeet the default sway configuration of the worksapaces so that a more smooth install can happen
 -   Never install something with pip in the global sence is kinda a bummer here, so an aur package would probably be good.
