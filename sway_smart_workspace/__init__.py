@@ -1,1 +1,0 @@
-from sway_smart_workspace.smart_workspace import WorkSpacer
