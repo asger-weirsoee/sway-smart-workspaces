@@ -9,8 +9,6 @@ with open('requirements.txt', 'r') as fr:
 setup(
     name='sway-smart-workspace',
     version='0.1.1',
-    package_data={'templates': ['sway_smart_workspace/templates/*']},
-    packages=['sway_smart_workspace', 'sway_smart_workspace/templates'],
     url='https://github.com/asger-weirsoee/sway-smart-workspaces',
     license='GNU Lesser General Public License v3 or later (LGPLv3+)',
     install_requires=requirements.split('\n'),

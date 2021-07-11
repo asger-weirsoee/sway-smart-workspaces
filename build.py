@@ -13,8 +13,11 @@ def main():
     group.add_argument('--check', action='store_true', help='Displays the twine check for dist')
     args = parser.parse_args()
 
-    for path in pathlib.Path('dist').iterdir():
-        os.remove(path)
+    if pathlib.Path('dist').is_dir():
+        for path in pathlib.Path('dist').iterdir():
+            os.remove(path)
+    else:
+        pathlib.Path('dist').mkdir()
 
     subprocess.call(['python3', 'setup.py', 'sdist', 'bdist_wheel'], stdout=subprocess.PIPE)
 
