@@ -8,7 +8,7 @@ with open('requirements.txt', 'r') as fr:
 
 setup(
     name='sway-smart-workspace',
-    version='0.1.3',
+    version='0.1.4',
     url='https://github.com/asger-weirsoee/sway-smart-workspaces',
     license='GNU Lesser General Public License v3 or later (LGPLv3+)',
     install_requires=requirements.split('\n'),

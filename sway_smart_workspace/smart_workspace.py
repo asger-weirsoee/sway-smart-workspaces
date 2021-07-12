@@ -90,9 +90,9 @@ class WorkSpacer:
 
     def run(self):
         name = self._get_workspace_from_courser_position()
-        output_config = Path(self.args.output_location).joinpath(name)
+        output_config = Path(self.args.output_location).joinpath(name['full'])
         if not output_config.exists():
-            self._create_default_config(output_config, name)
+            self._create_default_config(output_config, name['name'])
         workspaces = []
 
         for matchNum, match in enumerate(
@@ -110,16 +110,14 @@ class WorkSpacer:
 
     def print_output_continuously(self):
         while True:
-            print(self._get_workspace_from_courser_position())
+            print(self._get_workspace_from_courser_position()['name'])
             time.sleep(1)
 
-    def _get_workspace_from_courser_position(self, full=False):
+    def _get_workspace_from_courser_position(self):
         for output in self.sway.get_outputs():
             if output.focused:
-                res = f'{output.name}'
-                if full:
-                    res += f' {output.make} {output.model} {output.serial}'
-                return res
+                return {'name': f'{output.name}', 'full': f' {output.make} {output.model} {output.serial}'}
+
 
 
 default_home = Path.home().joinpath('.config').joinpath('sway').joinpath('outputs')
